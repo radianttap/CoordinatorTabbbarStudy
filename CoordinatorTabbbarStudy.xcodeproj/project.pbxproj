@@ -25,6 +25,10 @@
 		44270A71262EEB7400B0FE42 /* Home2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44270A70262EEB7400B0FE42 /* Home2ViewController.swift */; };
 		44270A74262EEF7700B0FE42 /* Orders2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44270A73262EEF7700B0FE42 /* Orders2ViewController.swift */; };
 		44270A77262EEFA200B0FE42 /* Orders3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44270A76262EEFA200B0FE42 /* Orders3ViewController.swift */; };
+		D0172A2F284276EE0079F6A1 /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0172A2B284276EE0079F6A1 /* Coordinating.swift */; };
+		D0172A30284276EE0079F6A1 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0172A2C284276EE0079F6A1 /* NavigationCoordinator.swift */; };
+		D0172A31284276EE0079F6A1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0172A2D284276EE0079F6A1 /* Coordinator.swift */; };
+		D0172A32284276EE0079F6A1 /* UIKit-CoordinatingExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0172A2E284276EE0079F6A1 /* UIKit-CoordinatingExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		44270A70262EEB7400B0FE42 /* Home2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home2ViewController.swift; sourceTree = "<group>"; };
 		44270A73262EEF7700B0FE42 /* Orders2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders2ViewController.swift; sourceTree = "<group>"; };
 		44270A76262EEFA200B0FE42 /* Orders3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders3ViewController.swift; sourceTree = "<group>"; };
+		D0172A2B284276EE0079F6A1 /* Coordinating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
+		D0172A2C284276EE0079F6A1 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		D0172A2D284276EE0079F6A1 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D0172A2E284276EE0079F6A1 /* UIKit-CoordinatingExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIKit-CoordinatingExtensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		44270A19262D9A9D00B0FE42 = {
 			isa = PBXGroup;
 			children = (
+				D0172A2A284276EE0079F6A1 /* Coordinator */,
 				44270A24262D9A9D00B0FE42 /* CoordinatorTabbbarStudy */,
 				44270A23262D9A9D00B0FE42 /* Products */,
 			);
@@ -167,6 +176,17 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		D0172A2A284276EE0079F6A1 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D0172A2B284276EE0079F6A1 /* Coordinating.swift */,
+				D0172A2C284276EE0079F6A1 /* NavigationCoordinator.swift */,
+				D0172A2D284276EE0079F6A1 /* Coordinator.swift */,
+				D0172A2E284276EE0079F6A1 /* UIKit-CoordinatingExtensions.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -238,14 +258,18 @@
 			files = (
 				44270A71262EEB7400B0FE42 /* Home2ViewController.swift in Sources */,
 				44270A6E262E24EA00B0FE42 /* DeepLinkCoordinator.swift in Sources */,
+				D0172A2F284276EE0079F6A1 /* Coordinating.swift in Sources */,
 				44270A4F262D9CF400B0FE42 /* OrdersBaseCoordinator.swift in Sources */,
+				D0172A30284276EE0079F6A1 /* NavigationCoordinator.swift in Sources */,
 				44270A6A262E249E00B0FE42 /* DeepLinkBaseCoordinator.swift in Sources */,
+				D0172A31284276EE0079F6A1 /* Coordinator.swift in Sources */,
 				44270A3E262D9B3F00B0FE42 /* MainBaseCoordinator.swift in Sources */,
 				44270A77262EEFA200B0FE42 /* Orders3ViewController.swift in Sources */,
 				44270A74262EEF7700B0FE42 /* Orders2ViewController.swift in Sources */,
 				44270A5D262D9EC000B0FE42 /* MainCoordinator.swift in Sources */,
 				44270A49262D9BE900B0FE42 /* Coordinator.swift in Sources */,
 				44270A45262D9BE100B0FE42 /* HomeBaseCoordinator.swift in Sources */,
+				D0172A32284276EE0079F6A1 /* UIKit-CoordinatingExtensions.swift in Sources */,
 				44270A55262D9D9600B0FE42 /* HomeCoordinator.swift in Sources */,
 				44270A66262DA32300B0FE42 /* OrdersViewController.swift in Sources */,
 				44270A61262DA29600B0FE42 /* HomeViewController.swift in Sources */,
