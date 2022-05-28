@@ -1,16 +1,22 @@
 import UIKit
 
-class HomeCoordinator: NavigationCoordinator {
+enum HomeScreen {
+	case initialScreen
+	case doubleButtonScreen
+}
 
-    var parentCoordinator: MainBaseCoordinator?
-    
-    lazy var rootViewController: UIViewController = UIViewController()
-    
-    func start() -> UIViewController {
-        rootViewController = UINavigationController(rootViewController: HomeViewController(coordinator: self))
-        return rootViewController
-    }
-    
+class HomeCoordinator: NavigationCoordinator {
+	required init() {
+		let nc = UINavigationController()
+		super.init(rootViewController: nc)
+	}
+
+	override func start(with completion: @escaping () -> Void = {}) {
+		super.start(with: completion)
+
+		setupInitialContent()
+	}
+
     func moveTo(flow: AppFlow, userData: [String : Any]? = nil) {
         switch flow {
         case .home(let screen):
@@ -58,4 +64,17 @@ class HomeCoordinator: NavigationCoordinator {
         navigationRootViewController?.popToRootViewController(animated: false)
         return self
     }
+}
+
+private extension HomeCoordinator {
+	func setupInitialContent() {
+		rootViewController.viewControllers = [
+			prepareInitialScreen()
+		]
+	}
+
+	func prepareInitialScreen() -> HomeViewController {
+		let vc = HomeViewController()
+		return vc
+	}
 }

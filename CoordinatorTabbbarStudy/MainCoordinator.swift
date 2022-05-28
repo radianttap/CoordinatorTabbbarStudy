@@ -5,11 +5,6 @@ enum AppFlow {
     case orders(OrdersScreen)
 }
 
-enum HomeScreen {
-    case initialScreen
-    case doubleButtonScreen
-}
-
 enum OrdersScreen {
     case firstScreen
     case secondScreen
@@ -33,24 +28,22 @@ class MainCoordinator: Coordinator<UITabBarController> {
     }
     
     private func goToOrdersFlow(_ flow: AppFlow) {
-        ordersCoordinator.moveTo(flow: flow, userData: nil)
-        (rootViewController as? UITabBarController)?.selectedIndex = 1
-        
+//        ordersCoordinator.moveTo(flow: flow, userData: nil)
+//        (rootViewController as? UITabBarController)?.selectedIndex = 1
     }
     
     private func goToHomeFlow(_ flow: AppFlow) {
-        homeCoordinator.moveTo(flow: flow, userData: nil)
-        (rootViewController as? UITabBarController)?.selectedIndex = 0
-        
+//        homeCoordinator.moveTo(flow: flow, userData: nil)
+//        (rootViewController as? UITabBarController)?.selectedIndex = 0
     }
     
     func handleDeepLink(text: String) {
-        deepLinkCoordinator.handleDeeplink(deepLink: text)
+//        deepLinkCoordinator.handleDeeplink(deepLink: text)
     }
     
     func resetToRoot() -> Self {
-        homeCoordinator.resetToRoot(animated: false)
-        moveTo(flow: .home(.initialScreen), userData: nil)
+//        homeCoordinator.resetToRoot(animated: false)
+//        moveTo(flow: .home(.initialScreen), userData: nil)
         return self
     }
     
@@ -58,17 +51,19 @@ class MainCoordinator: Coordinator<UITabBarController> {
 
 private extension MainCoordinator {
 	func setupTabs() {
-		let homeViewController = homeCoordinator.start()
-		homeCoordinator.parentCoordinator = self
-		homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
+		let hc = HomeCoordinator()
+		hc.start()
 
-		let ordersViewController = ordersCoordinator.start()
-		ordersCoordinator.parentCoordinator = self
-		ordersViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
+		rootViewController.viewControllers = [
+			hc.rootViewController
+		]
 
-		(rootViewController as? UITabBarController)?.viewControllers = [homeViewController,ordersViewController]
-
-		return rootViewController
-
+//		let ordersViewController = ordersCoordinator.start()
+//		ordersCoordinator.parentCoordinator = self
+//		ordersViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
+//
+//		(rootViewController as? UITabBarController)?.viewControllers = [homeViewController,ordersViewController]
+//
+//		return rootViewController
 	}
 }

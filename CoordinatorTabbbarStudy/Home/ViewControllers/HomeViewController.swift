@@ -1,20 +1,13 @@
-//
-//  HomeViewController.swift
-//  CoordinatorTabbbarStudy
-//
-//  Created by Leonardo Maia Pugliese on 19/04/21.
-//
-
 import UIKit
 
-class HomeViewController: UIViewController, HomeBaseCoordinated {
-    var coordinator: HomeBaseCoordinator?
-    
+class HomeViewController: UIViewController {
     var goToHome2button: UIButton!
     
-    init(coordinator: HomeBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
+
+		tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
+
         title = "Home"
     }
     
@@ -47,6 +40,6 @@ class HomeViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToHome2() {
-        coordinator?.moveTo(flow: .home(.doubleButtonScreen), userData: ["title": "Top Title"])
+//        coordinator?.moveTo(flow: .home(.doubleButtonScreen), userData: ["title": "Top Title"])
     }
 }

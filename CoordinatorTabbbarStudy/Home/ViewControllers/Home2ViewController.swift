@@ -1,21 +1,11 @@
-//
-//  HomeViewController.swift
-//  CoordinatorTabbbarStudy
-//
-//  Created by Leonardo Maia Pugliese on 19/04/21.
-//
-
 import UIKit
 
-class Home2ViewController: UIViewController, HomeBaseCoordinated {
-    var coordinator: HomeBaseCoordinator?
-    
+class Home2ViewController: UIViewController {
     var goToFavoriteButton: UIButton!
     var goToFavoriteDeepViewButton: UIButton!
     
-    init(coordinator: HomeBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
         title = "Home 2"
     }
     
@@ -67,10 +57,10 @@ class Home2ViewController: UIViewController, HomeBaseCoordinated {
     }
     
     @objc private func goToFavoriteTab() {
-        coordinator?.moveTo(flow: .orders(.firstScreen), userData: nil)
+//        coordinator?.moveTo(flow: .orders(.firstScreen), userData: nil)
     }
     
     @objc private func goToDeepViewInOrdersTab() {
-        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
+//        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
     }
 }
