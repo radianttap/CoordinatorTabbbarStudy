@@ -1,24 +1,20 @@
-//
-//  SceneDelegate.swift
-//  CoordinatorTabbbarStudy
-//
-//  Created by Leonardo Maia Pugliese on 19/04/21.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+	var mainCoordinator: MainCoordinator?
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainCoordinator().start()
+
+		let tc = UITabBarController()
+		let mainCoordinator = MainCoordinator(rootViewController: tc)
+		window?.rootViewController = mainCoordinator.rootViewController
         window?.makeKeyAndVisible()
-    }
+
+		mainCoordinator.start()
+}
     
 }
 
