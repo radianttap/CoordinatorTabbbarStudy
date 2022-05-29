@@ -37,6 +37,6 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func goToHome2() {
-//        coordinator?.moveTo(flow: .home(.doubleButtonScreen), userData: ["title": "Top Title"])
+		openFlow(AppFlow.home(.doubleButtonScreen).boxed, sender: self)
     }
 }
