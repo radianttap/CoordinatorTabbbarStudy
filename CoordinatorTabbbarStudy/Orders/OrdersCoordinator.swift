@@ -18,19 +18,19 @@ class OrdersCoordinator: NavigationCoordinator {
 		setupInitialContent()
 	}
 
-	override func openFlow(_ flowboxed: AppFlowBox, userData: [String : Any]? = nil, sender: Any?) {
+	override func openFlow(_ flowboxed: AppFlowBox, keepHierarchy: Bool = false, userData: [String : Any]? = nil, sender: Any?) {
 		let flow = flowboxed.unbox
 
 		switch flow {
 			case .home:
-				coordinatingResponder?.openFlow(flowboxed, userData: userData, sender: sender)
+				coordinatingResponder?.openFlow(flowboxed, keepHierarchy: keepHierarchy, userData: userData, sender: sender)
 
 			case .orders(let screen):
 				displayScreen(screen, userData: userData, sender: sender)
 		}
 	}
 
-	func displayScreen(_ screen: OrdersScreen, userData: [String: Any]? = nil, sender: Any? = nil) {
+	func displayScreen(_ screen: OrdersScreen, keepHierarchy: Bool = false, userData: [String: Any]? = nil, sender: Any? = nil) {
 		switch screen {
 			case .firstScreen:
 				if let vc = viewControllers.first(where: { $0 is OrdersViewController }) {
@@ -53,11 +53,23 @@ class OrdersCoordinator: NavigationCoordinator {
 					pop(to: vc)
 					return
 				}
+
+				if keepHierarchy {
+					//	super-brute-force approach.
+					//	can likely be done better.
+					rootViewController.viewControllers = [
+						prepareFirstScreen(),
+						prepareSecondScreen(),
+						prepareThirdScreen()
+					]
+					return
+				}
+
 				let vc = prepareThirdScreen()
 				show(vc)
 		}
 	}
-    
+
     func resetToRoot(){
 		displayScreen(.firstScreen)
     }

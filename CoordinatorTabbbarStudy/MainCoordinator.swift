@@ -29,7 +29,7 @@ class MainCoordinator: Coordinator<UITabBarController> {
 		setupTabs()
     }
 
-	override func openFlow(_ flowboxed: AppFlowBox, userData: [String : Any]? = nil, sender: Any?) {
+	override func openFlow(_ flowboxed: AppFlowBox, keepHierarchy: Bool = false, userData: [String : Any]? = nil, sender: Any?) {
 		let flow = flowboxed.unbox
 
 		switch flow {
