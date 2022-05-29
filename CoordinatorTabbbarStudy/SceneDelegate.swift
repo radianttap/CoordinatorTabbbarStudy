@@ -9,12 +9,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
 		let tc = UITabBarController()
-		let mainCoordinator = MainCoordinator(rootViewController: tc)
-		window?.rootViewController = mainCoordinator.rootViewController
-        window?.makeKeyAndVisible()
+		let c = MainCoordinator(rootViewController: tc)
+		mainCoordinator = c
 
-		mainCoordinator.start()
-}
+		window?.rootViewController = c.rootViewController
+        window?.makeKeyAndVisible()
+		c.start()
+	}
     
 }
 
