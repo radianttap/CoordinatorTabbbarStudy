@@ -17,14 +17,9 @@ class HomeCoordinator: NavigationCoordinator {
 		setupInitialContent()
 	}
 
-    func moveTo(flow: AppFlow, userData: [String : Any]? = nil) {
-//        switch flow {
-//        case .home(let screen):
-//            handleHomeFlow(for: screen, userData: userData)
-//        default:
-//            parentCoordinator?.moveTo(flow: flow, userData: userData)
-//        }
-    }
+	func displayScreen(_ screen: HomeScreen, userData: [String: Any]? = nil, sender: Any? = nil) {
+
+	}
     
     private func handleHomeFlow(for screen: HomeScreen, userData: [String: Any]?) {
 //        switch screen {

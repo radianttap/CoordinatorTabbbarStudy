@@ -5,32 +5,46 @@ enum AppFlow {
     case orders(OrdersScreen)
 }
 
+///	ObjC wrapper for `AppFlow`  to faciliate usage of non-ObjC types as arguments for ObjC methods.
+final class AppFlowBox: NSObject {
+	let unbox: AppFlow
+	init(_ value: AppFlow) {
+		self.unbox = value
+	}
+}
+extension AppFlow {
+	var boxed: AppFlowBox { return AppFlowBox(self) }
+}
+
+
+
+
+
+
+
 class MainCoordinator: Coordinator<UITabBarController> {
 	override func start(with completion: @escaping () -> Void = {}) {
 		super.start(with: completion)
 
 		setupTabs()
     }
-        
-    func moveTo(flow: AppFlow, userData: [String : Any]?) {
-        switch flow {
-        case .home:
-            goToHomeFlow(flow)
-        case .orders:
-            goToOrdersFlow(flow)
-        }
-    }
-    
-    private func goToOrdersFlow(_ flow: AppFlow) {
-//        ordersCoordinator.moveTo(flow: flow, userData: nil)
-//        (rootViewController as? UITabBarController)?.selectedIndex = 1
-    }
-    
-    private func goToHomeFlow(_ flow: AppFlow) {
-//        homeCoordinator.moveTo(flow: flow, userData: nil)
-//        (rootViewController as? UITabBarController)?.selectedIndex = 0
-    }
-    
+
+	override func openFlow(_ flowboxed: AppFlowBox, userData: [String : Any]? = nil, sender: Any?) {
+		let flow = flowboxed.unbox
+
+		switch flow {
+			case .home(let screen):
+				guard let c = childCoordinators.child(matching: HomeCoordinator.self) else { return }
+				c.displayScreen(screen, userData: userData, sender: sender)
+				rootViewController.selectedIndex = 0
+
+			case .orders(let screen):
+				guard let c = childCoordinators.child(matching: OrdersCoordinator.self) else { return }
+				c.displayScreen(screen, userData: userData, sender: sender)
+				rootViewController.selectedIndex = 1
+		}
+	}
+
     func handleDeepLink(text: String) {
 //        deepLinkCoordinator.handleDeeplink(deepLink: text)
     }
