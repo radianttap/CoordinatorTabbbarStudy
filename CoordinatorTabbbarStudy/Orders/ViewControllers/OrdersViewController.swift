@@ -1,23 +1,14 @@
-//
-//  OrdersViewController.swift
-//  CoordinatorTabbbarStudy
-//
-//  Created by Leonardo Maia Pugliese on 19/04/21.
-//
-
 import UIKit
 
-class OrdersViewController: UIViewController, OrdersBaseCoordinated {
-    
-    var coordinator: OrdersBaseCoordinator?
+class OrdersViewController: UIViewController {
     var goToOrders2button: UIButton!
     
-    init(coordinator: OrdersBaseCoordinator) {
-        super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
-        title = "Orders"
-    }
-    
+
+	init() {
+		super.init(nibName: nil, bundle: nil)
+		title = "Orders"
+	}
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -47,6 +38,6 @@ class OrdersViewController: UIViewController, OrdersBaseCoordinated {
     }
     
     @objc private func goToOrders2() {
-        coordinator?.moveTo(flow: .orders(.secondScreen), userData: nil)
+//        coordinator?.moveTo(flow: .orders(.secondScreen), userData: nil)
     }
 }

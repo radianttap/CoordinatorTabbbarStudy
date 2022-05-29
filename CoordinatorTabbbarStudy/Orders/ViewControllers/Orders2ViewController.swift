@@ -1,20 +1,10 @@
-//
-//  Orders2ViewController.swift
-//  CoordinatorTabbbarStudy
-//
-//  Created by Leonardo Maia Pugliese on 20/04/21.
-//
-
 import UIKit
 
-class Orders2ViewController: UIViewController, OrdersBaseCoordinated {
-    
-    var coordinator: OrdersBaseCoordinator?
+class Orders2ViewController: UIViewController {
     var goToOrders3button: UIButton!
     
-    init(coordinator: OrdersBaseCoordinator) {
+    init() {
         super.init(nibName: nil, bundle: nil)
-        self.coordinator = coordinator
         title = "Orders 2"
     }
     
@@ -47,6 +37,6 @@ class Orders2ViewController: UIViewController, OrdersBaseCoordinated {
     }
     
     @objc private func goToOrders3Screen() {
-        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
+//        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
     }
 }

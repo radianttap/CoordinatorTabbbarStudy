@@ -5,12 +5,6 @@ enum AppFlow {
     case orders(OrdersScreen)
 }
 
-enum OrdersScreen {
-    case firstScreen
-    case secondScreen
-    case thirdScreen
-}
-
 class MainCoordinator: Coordinator<UITabBarController> {
 	override func start(with completion: @escaping () -> Void = {}) {
 		super.start(with: completion)
@@ -52,18 +46,16 @@ class MainCoordinator: Coordinator<UITabBarController> {
 private extension MainCoordinator {
 	func setupTabs() {
 		let hc = HomeCoordinator()
-		hc.start()
+		startChild(coordinator: hc)
+		hc.rootViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
+
+		let oc = OrdersCoordinator()
+		startChild(coordinator: oc)
+		oc.rootViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
 
 		rootViewController.viewControllers = [
-			hc.rootViewController
+			hc.rootViewController,
+			oc.rootViewController
 		]
-
-//		let ordersViewController = ordersCoordinator.start()
-//		ordersCoordinator.parentCoordinator = self
-//		ordersViewController.tabBarItem = UITabBarItem(title: "Orders", image: UIImage(systemName: "doc.plaintext"), tag: 1)
-//
-//		(rootViewController as? UITabBarController)?.viewControllers = [homeViewController,ordersViewController]
-//
-//		return rootViewController
 	}
 }

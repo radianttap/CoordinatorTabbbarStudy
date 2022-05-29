@@ -5,9 +5,6 @@ class HomeViewController: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
-
-		tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "homekit"), tag: 0)
-
         title = "Home"
     }
     

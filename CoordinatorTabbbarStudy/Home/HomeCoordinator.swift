@@ -18,28 +18,28 @@ class HomeCoordinator: NavigationCoordinator {
 	}
 
     func moveTo(flow: AppFlow, userData: [String : Any]? = nil) {
-        switch flow {
-        case .home(let screen):
-            handleHomeFlow(for: screen, userData: userData)
-        default:
-            parentCoordinator?.moveTo(flow: flow, userData: userData)
-        }
+//        switch flow {
+//        case .home(let screen):
+//            handleHomeFlow(for: screen, userData: userData)
+//        default:
+//            parentCoordinator?.moveTo(flow: flow, userData: userData)
+//        }
     }
     
     private func handleHomeFlow(for screen: HomeScreen, userData: [String: Any]?) {
-        switch screen {
-        case .initialScreen:
-            navigationRootViewController?.popToRootViewController(animated: true)
-        case .doubleButtonScreen:
-            guard let title = userData?["title"] as? String else { return }
-            goToHome2ScreenWith(title: title)
-        }
+//        switch screen {
+//        case .initialScreen:
+//            navigationRootViewController?.popToRootViewController(animated: true)
+//        case .doubleButtonScreen:
+//            guard let title = userData?["title"] as? String else { return }
+//            goToHome2ScreenWith(title: title)
+//        }
     }
     
     func goToHome2ScreenWith(title: String) {
-        let home2ViewController = Home2ViewController(coordinator: self)
-        home2ViewController.title = title
-        navigationRootViewController?.pushViewController(home2ViewController, animated: true)
+//        let home2ViewController = Home2ViewController(coordinator: self)
+//        home2ViewController.title = title
+//        navigationRootViewController?.pushViewController(home2ViewController, animated: true)
     }
 //
 //    func goToFavoritesFlow() {
@@ -61,7 +61,7 @@ class HomeCoordinator: NavigationCoordinator {
 //    }
     
     func resetToRoot() -> Self {
-        navigationRootViewController?.popToRootViewController(animated: false)
+//        navigationRootViewController?.popToRootViewController(animated: false)
         return self
     }
 }
@@ -69,11 +69,11 @@ class HomeCoordinator: NavigationCoordinator {
 private extension HomeCoordinator {
 	func setupInitialContent() {
 		rootViewController.viewControllers = [
-			prepareInitialScreen()
+			prepareFirstScreen()
 		]
 	}
 
-	func prepareInitialScreen() -> HomeViewController {
+	func prepareFirstScreen() -> HomeViewController {
 		let vc = HomeViewController()
 		return vc
 	}
