@@ -18,6 +18,18 @@ class OrdersCoordinator: NavigationCoordinator {
 		setupInitialContent()
 	}
 
+	override func openFlow(_ flowboxed: AppFlowBox, userData: [String : Any]? = nil, sender: Any?) {
+		let flow = flowboxed.unbox
+
+		switch flow {
+			case .home:
+				coordinatingResponder?.openFlow(flowboxed, userData: userData, sender: sender)
+
+			case .orders(let screen):
+				displayScreen(screen, userData: userData, sender: sender)
+		}
+	}
+
 	func displayScreen(_ screen: OrdersScreen, userData: [String: Any]? = nil, sender: Any? = nil) {
 
 	}
