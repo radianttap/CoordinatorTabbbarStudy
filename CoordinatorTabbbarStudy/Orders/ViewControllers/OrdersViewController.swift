@@ -38,6 +38,6 @@ class OrdersViewController: UIViewController {
     }
     
     @objc private func goToOrders2() {
-//        coordinator?.moveTo(flow: .orders(.secondScreen), userData: nil)
+		openFlow(AppFlow.orders(.secondScreen).boxed, sender: self)
     }
 }

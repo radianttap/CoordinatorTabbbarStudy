@@ -37,6 +37,6 @@ class Orders2ViewController: UIViewController {
     }
     
     @objc private func goToOrders3Screen() {
-//        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
+		openFlow(AppFlow.orders(.thirdScreen).boxed, sender: self)
     }
 }

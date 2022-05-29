@@ -31,35 +31,36 @@ class OrdersCoordinator: NavigationCoordinator {
 	}
 
 	func displayScreen(_ screen: OrdersScreen, userData: [String: Any]? = nil, sender: Any? = nil) {
+		switch screen {
+			case .firstScreen:
+				if let vc = viewControllers.first(where: { $0 is OrdersViewController }) {
+					pop(to: vc)
+					return
+				}
+				let vc = prepareFirstScreen()
+				root(vc)
 
+			case .secondScreen:
+				if let vc = viewControllers.first(where: { $0 is Orders2ViewController }) {
+					pop(to: vc)
+					return
+				}
+				let vc = prepareSecondScreen()
+				show(vc)
+
+			case .thirdScreen:
+				if let vc = viewControllers.first(where: { $0 is Orders3ViewController }) {
+					pop(to: vc)
+					return
+				}
+				let vc = prepareThirdScreen()
+				show(vc)
+		}
 	}
     
-    private func handleOrdersFlow(for screen: OrdersScreen, userData: [String : Any]? = nil) {
-        switch screen {
-        case .firstScreen:
-            resetToRoot(animated: false)
-        case .secondScreen:
-            handleGoToSecondScreen()
-        case .thirdScreen:
-            handleGoToThirdScreen()
-        }
-    }
-    
-    private func handleGoToSecondScreen() {
-        resetToRoot(animated: false)
-//        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: false)
-    }
-    
-    private func handleGoToThirdScreen() {
-        resetToRoot(animated: false)
-//        navigationRootViewController?.pushViewController(Orders2ViewController(coordinator: self), animated: false)
-//        navigationRootViewController?.pushViewController(Orders3ViewController(coordinator: self), animated: false)
-    }
-   
     @discardableResult
-    func resetToRoot(animated: Bool) -> Self {
-//        navigationRootViewController?.popToRootViewController(animated: animated)
-        return self
+    func resetToRoot(){
+		displayScreen(.firstScreen)
     }
 }
 
@@ -72,6 +73,16 @@ private extension OrdersCoordinator {
 
 	func prepareFirstScreen() -> OrdersViewController {
 		let vc = OrdersViewController()
+		return vc
+	}
+
+	func prepareSecondScreen() -> Orders2ViewController {
+		let vc = Orders2ViewController()
+		return vc
+	}
+
+	func prepareThirdScreen() -> Orders3ViewController {
+		let vc = Orders3ViewController()
 		return vc
 	}
 }
