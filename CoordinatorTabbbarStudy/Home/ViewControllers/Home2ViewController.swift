@@ -57,10 +57,10 @@ class Home2ViewController: UIViewController {
     }
     
     @objc private func goToFavoriteTab() {
-//        coordinator?.moveTo(flow: .orders(.firstScreen), userData: nil)
+		openFlow(AppFlow.orders(.firstScreen).boxed, sender: self)
     }
     
     @objc private func goToDeepViewInOrdersTab() {
-//        coordinator?.moveTo(flow: .orders(.thirdScreen), userData: nil)
+		openFlow(AppFlow.orders(.thirdScreen).boxed, sender: self)
     }
 }
