@@ -44,17 +44,6 @@ class MainCoordinator: Coordinator<UITabBarController> {
 				rootViewController.selectedIndex = 1
 		}
 	}
-
-    func handleDeepLink(text: String) {
-//        deepLinkCoordinator.handleDeeplink(deepLink: text)
-    }
-    
-    func resetToRoot() -> Self {
-//        homeCoordinator.resetToRoot(animated: false)
-//        moveTo(flow: .home(.initialScreen), userData: nil)
-        return self
-    }
-    
 }
 
 private extension MainCoordinator {
