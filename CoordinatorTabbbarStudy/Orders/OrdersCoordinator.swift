@@ -58,7 +58,6 @@ class OrdersCoordinator: NavigationCoordinator {
 		}
 	}
     
-    @discardableResult
     func resetToRoot(){
 		displayScreen(.firstScreen)
     }
