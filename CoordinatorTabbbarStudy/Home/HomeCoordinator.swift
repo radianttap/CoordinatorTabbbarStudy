@@ -59,6 +59,8 @@ private extension HomeCoordinator {
 		rootViewController.viewControllers = [
 			prepareFirstScreen()
 		]
+		
+		viewControllers = rootViewController.viewControllers
 	}
 
 	func prepareFirstScreen() -> HomeViewController {

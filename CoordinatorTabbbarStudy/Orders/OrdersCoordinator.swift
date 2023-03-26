@@ -80,6 +80,8 @@ private extension OrdersCoordinator {
 		rootViewController.viewControllers = [
 			prepareFirstScreen()
 		]
+		
+		viewControllers = rootViewController.viewControllers
 	}
 
 	func prepareFirstScreen() -> OrdersViewController {
